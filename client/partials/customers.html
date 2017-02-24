@@ -1,0 +1,33 @@
+<div ng-controller='customerController'>
+	<div id='left_bar'>
+		
+		<h3>Make a new customer</h3>
+
+		<form>
+			Name: <input type="text" ng-model='customer.name'>
+			<input class='button' type="submit" value='New Customer' ng-click='newCustomer()'>
+		</form>
+
+		<h3>Search customers</h3>
+		<input type="text" ng-model="search" placeholder="🔎 search">
+
+	</div>
+
+	<div id='center_margin'>
+		<h3>All of the Customers</h3>
+
+		<table>
+			<tr>
+				<th>Customer Name</th>
+				<th>Created On</th>
+				<th>Action</th>
+			</tr>
+			<tr ng-repeat='customer in customers | filter:search'>
+				<td>{{customer.name}}</td>
+				<td>{{customer.createdAt | date: 'short'}}</td>
+				<td><button class='button' ng-click='deleteCustomer(customer)'>Delete</button></td>
+			</tr>
+		</table>
+
+	</div>
+</div>

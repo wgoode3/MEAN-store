@@ -1,0 +1,47 @@
+<div ng-controller='orderController'>
+	<div id='left_bar'>
+		<h3>Add a new order</h3>
+
+		<form>
+			Customer: 
+			<select ng-model='newOrder._customer'>
+				<option ng-repeat='customer in customers' value='{{customer._id}}'>{{customer.name}}</option>
+			</select><br>
+			Product:
+			<select ng-model='newOrder._product' ng-change='change()'>
+				<option ng-repeat='product in products' value='{{product._id}}'>{{product.name}}</option>
+			</select><br>
+			Quantity:
+			<select ng-model='newOrder.quantity'>
+				<option ng-repeat='q in quantity' value='{{q}}'>{{q}}</option>
+			</select><br>
+			<h4 style='color:red;' ng-if='message'>{{message}}</h4>
+			<input class='button' type="submit" value="Place Order" ng-click='order()'>
+		</form>
+
+		<h3>Search orders</h3>
+		<input type="text" ng-model="search" placeholder="🔎 search">
+
+	</div>
+
+	<div id='center_margin'>
+		
+		<h3>All of the orders</h3>
+		
+		<table>
+			<tr>
+				<th>Customer</th>
+				<th>Product</th>
+				<th>Quantity</th>
+				<th>Date</th>
+			</tr>
+			<tr ng-repeat='order in orders | filter:search'>
+				<td>{{order._customer.name}}</td>
+				<td>{{order._product.name}}</td>
+				<td>{{order.quantity}}</td>
+				<td>{{order.createdAt | date:"short"}}</td>
+			</tr>
+		</table>
+
+	</div>
+</div>

@@ -1,0 +1,43 @@
+<div ng-controller='homeController'>
+
+	<div id='left_bar'>
+		<h3>Search</h3>
+		<input type="text" ng-model="search" placeholder="🔎 search">
+	</div>
+
+	<div id='center_margin'>
+		<h3 ng-bind='!allProducts? "Recent Products": "All Products"'></h3>
+		
+		<div class="product" ng-if='!allProducts' ng-repeat='product in products | filter:search | limitTo:-4'>
+			<a href='#!/product/{{product._id}}'><img src="{{product.image}}" alt="{{product.name}}" height="120"></a>
+			<p>{{product.name}}<br>{{product.quantity}} left</p>
+		</div>
+		<div class="product" ng-if='allProducts' ng-repeat='product in products | filter:search'>
+			<a href='#!/product/{{product._id}}'><img src="{{product.image}}" alt="{{product.name}}" height="120"></a>
+			<p>{{product.name}}<br>{{product.quantity}} left</p>
+		</div>
+		<br><br>
+		<p class='not_link' ng-click='allProducts = !allProducts' ng-bind='!allProducts? "Show more": "Show less"'></p>
+
+		<h3 ng-bind='!allOrders? "Recent Orders": "All Orders"'></h3>
+		
+		<ul ng-if='!allOrders'>
+			<li ng-repeat='order in orders | filter:search | limitTo:-3'>{{order._customer.name}} bought {{order.quantity}} {{order._product.name}}(s) {{order.time_relative}}.</li>
+		</ul>
+		<ul ng-if='allOrders'>
+			<li ng-repeat='order in orders | filter:search'>{{order._customer.name}} bought {{order.quantity}} {{order._product.name}}(s) {{order.time_relative}}.</li>
+		</ul>
+		<p class='not_link' ng-click='allOrders = !allOrders' ng-bind='!allOrders? "Show more": "Show less"'></p>
+
+		<h3 ng-bind='!allCustomers? "New Customers": "All Customers"'></h3>
+		
+		<ul ng-if='!allCustomers'>
+			<li ng-repeat='customer in customers | filter:search | limitTo:-3'>{{customer.name}} joined the store {{customer.time_relative}}.</li>
+		</ul>
+		<ul ng-if='allCustomers'>
+			<li ng-repeat='customer in customers | filter:search'>{{customer.name}} joined the store {{customer.time_relative}}.</li>
+		</ul>
+		<p class='not_link' ng-click='allCustomers = !allCustomers' ng-bind='!allCustomers? "Show more": "Show less"'></p>
+
+	</div>
+</div>

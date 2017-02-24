@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html ng-app='app'>
+<head>
+    <meta charset="utf-8">
+	<title>Mini Store</title>
+    <script src="angular/angular.js"></script>
+    <script src="angular-route/angular-route.js"></script>
+    <script src="angular-cookies/angular-cookies.js"></script>
+    <script src="moment/moment.js"></script>
+    <script src="angular-momentjs/angular-momentjs.js"></script>
+    <script src="app.js"></script>
+    <script src="assets/factories/customerFactory.js"></script>
+    <script src="assets/factories/productFactory.js"></script>
+    <script src="assets/factories/orderFactory.js"></script>
+    <script src="assets/controllers/homeController.js"></script>
+    <script src="assets/controllers/productController.js"></script>
+    <script src="assets/controllers/orderController.js"></script>
+    <script src="assets/controllers/customerController.js"></script>
+    <link rel="stylesheet" type="text/css" href="assets/static/style.css">
+</head>
+<body>
+
+    <h1>MEAN Store</h1>
+
+    <p>
+    	<a href='#!/'>Home</a> | 
+    	<a href='#!/products'>Products</a> | 
+    	<a href='#!/orders'>Orders</a> | 
+    	<a href='#!/customers'>Customers</a> |
+    	<a href='#!/settings'>Settings</a>
+    </p>
+
+    <div ng-view>
+    </div>
+
+</body>
+</html>
