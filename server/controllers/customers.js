@@ -1,4 +1,3 @@
-console.log('customers controller');
 var mongoose = require('mongoose');
 var Customer = mongoose.model('Customer');
 var Order = mongoose.model('Order');

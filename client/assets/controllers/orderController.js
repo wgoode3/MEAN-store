@@ -1,5 +1,3 @@
-console.log('this is the order controller')
-
 app.controller('orderController', ['$scope', 'productFactory', 'customerFactory', 'orderFactory', function($scope, productFactory, customerFactory, orderFactory) {
   
   $scope.products = [];

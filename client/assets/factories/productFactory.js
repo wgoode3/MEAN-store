@@ -1,5 +1,3 @@
-console.log('this is the product factory')
-
 app.factory('productFactory', ['$http', function($http) {
 
   var products = [];

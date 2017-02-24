@@ -1,5 +1,3 @@
-console.log('order model');
-
 var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 

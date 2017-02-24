@@ -1,13 +1,8 @@
-console.log('this is the home controller')
-
 app.controller('homeController', ['$scope', 'productFactory', 'customerFactory', 'orderFactory', '$moment', function($scope, productFactory, customerFactory, orderFactory, $moment) {
   
   $scope.products = [];
   $scope.customers = [];
   $scope.orders = [];
-
-  console.log($moment);
-  console.log($moment("20111031", "YYYYMMDD").fromNow())
 
   function getProducts(){
     productFactory.getProducts(function(data){

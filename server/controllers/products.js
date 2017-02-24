@@ -1,4 +1,3 @@
-console.log('products controller');
 var mongoose = require('mongoose');
 var Product = mongoose.model('Product');
 

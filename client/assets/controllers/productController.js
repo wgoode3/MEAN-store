@@ -1,5 +1,3 @@
-console.log('this is the product controller')
-
 app.controller('productController', ['$scope', 'productFactory', '$routeParams', function($scope, productFactory, $rParams) {
   
   $scope.products = [];
@@ -20,7 +18,6 @@ app.controller('productController', ['$scope', 'productFactory', '$routeParams',
   	productFactory.getProducts(function(data){
   		$scope.products = data.data;
       if($rParams){
-        console.log('the route parameter is', $rParams.id);
         for(var i=0; i<$scope.products.length; i++){
           if($scope.products[i]._id == $rParams.id){
             $scope.product = $scope.products[i];

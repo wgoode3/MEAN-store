@@ -1,5 +1,3 @@
-console.log('this is the order factory')
-
 app.factory('orderFactory', ['$http', function($http) {
 
   var orders = [];
